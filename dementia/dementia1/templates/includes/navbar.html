@@ -1,0 +1,138 @@
+<nav class="navbar">
+
+    <div class="navbar-left">
+
+        <a
+        href="/"
+        class="logo">
+
+            <img
+            src="{{ url_for(
+            'static',
+            filename='images/logo.png'
+            ) }}"
+            alt="Logo">
+
+            <span>
+
+                DementiaAI
+
+            </span>
+
+        </a>
+
+    </div>
+
+    <div class="navbar-center">
+
+        <a href="/">
+
+            Home
+
+        </a>
+
+        <a href="/dashboard">
+
+            Dashboard
+
+        </a>
+
+        <a href="/assessment">
+
+            Assessment
+
+        </a>
+
+        <a href="/history">
+
+            History
+
+        </a>
+
+        <a href="/comparison">
+
+            Comparison
+
+        </a>
+
+    </div>
+
+    <div class="navbar-right">
+
+        {% if session.get("user_id") %}
+
+        <div class="profile-menu">
+
+            <button
+            class="profile-btn">
+
+                <img
+                src="{{ url_for(
+                'static',
+                filename='images/profile-avatar.png'
+                ) }}"
+                alt="Profile">
+
+                <span>
+
+                    {{ session.get("username") }}
+
+                </span>
+
+                ▼
+
+            </button>
+
+            <div class="dropdown-content">
+
+                <a href="/profile">
+
+                    Profile
+
+                </a>
+
+                <a href="/settings">
+
+                    Settings
+
+                </a>
+
+                <a href="/reports">
+
+                    Reports
+
+                </a>
+
+                <a href="/logout">
+
+                    Logout
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% else %}
+
+        <a
+        href="/login"
+        class="nav-btn">
+
+            Login
+
+        </a>
+
+        <a
+        href="/signup"
+        class="nav-btn signup-btn">
+
+            Signup
+
+        </a>
+
+        {% endif %}
+
+    </div>
+
+</nav>

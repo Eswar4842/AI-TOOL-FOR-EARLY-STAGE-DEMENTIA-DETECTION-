@@ -1,0 +1,377 @@
+.hero{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    align-items:center;
+
+    gap:60px;
+
+    min-height:80vh;
+}
+
+.hero-left h1{
+
+    font-size:56px;
+
+    line-height:1.2;
+
+    color:#0f172a;
+
+    margin-bottom:20px;
+}
+
+.hero-left p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#64748b;
+
+    margin-bottom:30px;
+}
+
+.hero-badge{
+
+    display:inline-block;
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+    padding:10px 20px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+}
+
+.secondary-btn{
+
+    display:inline-block;
+
+    padding:14px 24px;
+
+    border-radius:12px;
+
+    border:2px solid #2563eb;
+
+    color:#2563eb;
+
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+.secondary-btn:hover{
+
+    background:#2563eb;
+
+    color:white;
+}
+
+.hero-right{
+
+    text-align:center;
+}
+
+.hero-right img{
+
+    width:100%;
+
+    max-width:550px;
+
+    animation:
+    floatImage
+    4s
+    ease-in-out
+    infinite;
+}
+
+@keyframes floatImage{
+
+    0%{
+
+        transform:
+        translateY(0);
+    }
+
+    50%{
+
+        transform:
+        translateY(-15px);
+    }
+
+    100%{
+
+        transform:
+        translateY(0);
+    }
+}
+
+/* ========================= */
+/* Statistics */
+/* ========================= */
+
+.stats-section{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(
+            220px,
+            1fr
+        )
+    );
+
+    gap:25px;
+
+    margin-top:80px;
+}
+
+.stat-card{
+
+    text-align:center;
+
+    transition:0.3s;
+}
+
+.stat-card:hover{
+
+    transform:
+    translateY(-8px);
+}
+
+.stat-card h2{
+
+    color:#2563eb;
+
+    font-size:42px;
+
+    margin-bottom:10px;
+}
+
+.stat-card p{
+
+    color:#64748b;
+
+    font-weight:600;
+}
+
+/* ========================= */
+/* About */
+/* ========================= */
+
+.about-section{
+
+    margin-top:100px;
+
+    text-align:center;
+}
+
+.about-section h2{
+
+    font-size:42px;
+
+    margin-bottom:20px;
+
+    color:#0f172a;
+}
+
+.about-section p{
+
+    max-width:900px;
+
+    margin:auto;
+
+    color:#64748b;
+
+    line-height:1.9;
+
+    font-size:18px;
+}
+
+/* ========================= */
+/* Features */
+/* ========================= */
+
+.features-section{
+
+    margin-top:100px;
+}
+
+.features-section h2{
+
+    text-align:center;
+
+    font-size:42px;
+
+    margin-bottom:50px;
+
+    color:#0f172a;
+}
+
+.feature-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(
+            280px,
+            1fr
+        )
+    );
+
+    gap:30px;
+}
+
+.feature-card{
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:30px;
+
+    box-shadow:
+    0 10px 30px
+    rgba(
+        0,
+        0,
+        0,
+        0.08
+    );
+
+    transition:0.3s;
+}
+
+.feature-card:hover{
+
+    transform:
+    translateY(-8px);
+}
+
+.feature-card h3{
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+}
+
+.feature-card p{
+
+    color:#64748b;
+
+    line-height:1.8;
+}
+
+/* ========================= */
+/* CTA */
+/* ========================= */
+
+.cta-section{
+
+    margin-top:100px;
+
+    text-align:center;
+
+    background:white;
+
+    padding:60px;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 10px 30px
+    rgba(
+        0,
+        0,
+        0,
+        0.08
+    );
+}
+
+.cta-section h2{
+
+    font-size:40px;
+
+    margin-bottom:20px;
+
+    color:#0f172a;
+}
+
+.cta-section p{
+
+    color:#64748b;
+
+    margin-bottom:30px;
+
+    font-size:18px;
+}
+
+/* ========================= */
+/* Responsive */
+/* ========================= */
+
+@media(max-width:992px){
+
+    .hero{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+    }
+
+    .hero-left h1{
+
+        font-size:42px;
+    }
+
+    .hero-buttons{
+
+        justify-content:center;
+    }
+
+    .hero-right{
+
+        order:-1;
+    }
+}
+
+@media(max-width:768px){
+
+    .hero-left h1{
+
+        font-size:34px;
+    }
+
+    .about-section h2,
+    .features-section h2,
+    .cta-section h2{
+
+        font-size:30px;
+    }
+
+    .cta-section{
+
+        padding:30px;
+    }
+}

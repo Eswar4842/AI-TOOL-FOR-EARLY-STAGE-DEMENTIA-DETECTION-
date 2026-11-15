@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+{% block title %}
+
+Dementia AI Platform
+
+{% endblock %}
+
+</title>
+
+<link
+rel="icon"
+href="{{ url_for(
+'static',
+filename='images/favicon.ico'
+) }}">
+
+<link
+rel="stylesheet"
+href="{{ url_for(
+'static',
+filename='css/base.css'
+) }}">
+
+{% block css %}
+
+{% endblock %}
+
+</head>
+
+<body>
+
+<div class="brain-background">
+
+<img
+src="{{ url_for(
+'static',
+filename='images/brain-background.png'
+) }}"
+alt="Brain Background">
+
+</div>
+
+{% include
+'includes/navbar.html' %}
+
+<div class="main-content">
+
+{% block content %}
+
+{% endblock %}
+
+</div>
+
+{% include
+'includes/footer.html' %}
+
+{% block js %}
+
+{% endblock %}
+
+</body>
+
+</html>

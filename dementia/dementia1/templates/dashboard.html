@@ -1,0 +1,463 @@
+```html
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard | DementiaAI
+{% endblock %}
+
+{% block css %}
+
+<link
+rel="stylesheet"
+href="{{ url_for(
+'static',
+filename='css/dashboard.css'
+) }}">
+
+{% endblock %}
+
+{% block content %}
+
+<section class="dashboard-header">
+
+    <div class="welcome-section">
+
+        <h1>
+
+            Welcome,
+            {{ session["username"] }} 👋
+
+        </h1>
+
+        <p>
+
+            Monitor cognitive health,
+            track assessments,
+            and analyze dementia risk.
+
+        </p>
+
+    </div>
+
+    <div class="dashboard-banner">
+
+        <img
+        src="{{ url_for(
+        'static',
+        filename='images/dashboard-banner.png'
+        ) }}"
+        alt="Dashboard Banner">
+
+    </div>
+
+</section>
+
+<section class="stats-grid">
+
+    <div class="stat-card">
+
+        <h3>
+
+            Total Assessments
+
+        </h3>
+
+        <h2>
+
+            {{ total_assessments }}
+
+        </h2>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h3>
+
+            Latest Risk Level
+
+        </h3>
+
+        <h2>
+
+            {{ latest_risk }}
+
+        </h2>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h3>
+
+            Last Assessment
+
+        </h3>
+
+        <h2>
+
+            {{ last_date }}
+
+        </h2>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h3>
+
+            Reports Generated
+
+        </h3>
+
+        <h2>
+
+            {{ reports_count }}
+
+        </h2>
+
+    </div>
+
+</section>
+
+<section class="model-performance">
+
+    <h2>
+
+        AI Model Performance
+
+    </h2>
+
+    <div class="metrics-grid">
+
+        <div class="metric-card">
+
+            <h3>
+
+                Accuracy
+
+            </h3>
+
+            <h1>
+
+                {{ metrics.accuracy }}%
+
+            </h1>
+
+        </div>
+
+        <div class="metric-card">
+
+            <h3>
+
+                Precision
+
+            </h3>
+
+            <h1>
+
+                {{ metrics.precision }}%
+
+            </h1>
+
+        </div>
+
+        <div class="metric-card">
+
+            <h3>
+
+                Recall
+
+            </h3>
+
+            <h1>
+
+                {{ metrics.recall }}%
+
+            </h1>
+
+        </div>
+
+        <div class="metric-card">
+
+            <h3>
+
+                F1 Score
+
+            </h3>
+
+            <h1>
+
+                {{ metrics.f1_score }}%
+
+            </h1>
+
+        </div>
+
+    </div>
+
+    <div class="model-info">
+
+        <p>
+
+            <strong>
+
+                Model:
+
+            </strong>
+
+            TabNet + ANN
+
+        </p>
+
+        <p>
+
+            <strong>
+
+                Features Used:
+
+            </strong>
+
+            10 Clinical Features
+
+        </p>
+
+        <p>
+
+            <strong>
+
+                Purpose:
+
+            </strong>
+
+            Early Stage Dementia Detection
+
+        </p>
+
+    </div>
+
+</section>
+
+<section class="quick-actions">
+
+    <h2>
+
+        Quick Actions
+
+    </h2>
+
+    <div class="action-grid">
+
+        <a
+        href="/assessment"
+        class="action-card">
+
+            <div class="action-icon">
+
+                🧠
+
+            </div>
+
+            <h3>
+
+                New Assessment
+
+            </h3>
+
+            <p>
+
+                Perform dementia
+                risk assessment.
+
+            </p>
+
+        </a>
+
+        <a
+        href="/history"
+        class="action-card">
+
+            <div class="action-icon">
+
+                📋
+
+            </div>
+
+            <h3>
+
+                Assessment History
+
+            </h3>
+
+            <p>
+
+                View all previous
+                assessments.
+
+            </p>
+
+        </a>
+
+        <a
+        href="/comparison"
+        class="action-card">
+
+            <div class="action-icon">
+
+                📊
+
+            </div>
+
+            <h3>
+
+                Comparison Dashboard
+
+            </h3>
+
+            <p>
+
+                Compare historical
+                patient results.
+
+            </p>
+
+        </a>
+
+        <a
+        href="/reports"
+        class="action-card">
+
+            <div class="action-icon">
+
+                📄
+
+            </div>
+
+            <h3>
+
+                Reports
+
+            </h3>
+
+            <p>
+
+                Download PDF
+                assessment reports.
+
+            </p>
+
+        </a>
+
+    </div>
+
+</section>
+
+<section class="recent-activity">
+
+    <h2>
+
+        Recent Activity
+
+    </h2>
+
+    <div class="activity-card">
+
+        {% if recent_assessments %}
+
+            {% for item in recent_assessments %}
+
+            <div class="activity-item">
+
+                <div>
+
+                    <strong>
+
+                        {{ item.prediction }}
+
+                    </strong>
+
+                </div>
+
+                <div>
+
+                    Risk Score:
+                    {{ item.risk_score }}
+
+                </div>
+
+                <div>
+
+                    {{ item.date }}
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>
+
+                No assessments available.
+
+            </p>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+<section class="dashboard-info">
+
+    <div class="info-card">
+
+        <h3>
+
+            Explainable AI
+
+        </h3>
+
+        <p>
+
+            Understand how the
+            model reached its
+            prediction using
+            feature importance
+            and clinical factors.
+
+        </p>
+
+    </div>
+
+    <div class="info-card">
+
+        <h3>
+
+            Trend Monitoring
+
+        </h3>
+
+        <p>
+
+            Track MMSE, ADL,
+            Functional Assessment
+            and dementia risk
+            progression over time.
+
+        </p>
+
+    </div>
+
+</section>
+
+<script
+src="{{ url_for(
+'static',
+filename='js/dashboard.js'
+) }}">
+</script>
+
+{% endblock %}
+```

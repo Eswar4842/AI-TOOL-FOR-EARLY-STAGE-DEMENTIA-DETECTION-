@@ -1,0 +1,632 @@
+:root{
+
+    --primary:#2563eb;
+    --secondary:#06b6d4;
+    --success:#10b981;
+    --warning:#f59e0b;
+    --danger:#ef4444;
+
+    --dark:#0f172a;
+    --card:#ffffff;
+    --text:#1e293b;
+    --border:#e2e8f0;
+
+    --shadow:
+    0 10px 30px rgba(
+        0,
+        0,
+        0,
+        0.08
+    );
+}
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+    font-family:
+
+    Inter,
+    Segoe UI,
+    sans-serif;
+}
+
+body{
+
+    background:
+
+    linear-gradient(
+
+    135deg,
+
+    #f8fafc,
+
+    #e0f2fe
+
+    );
+
+    min-height:100vh;
+
+    color:var(--text);
+
+    overflow-x:hidden;
+}
+
+a{
+
+    text-decoration:none;
+}
+
+ul{
+
+    list-style:none;
+}
+
+img{
+
+    max-width:100%;
+}
+
+/* ===================================== */
+/* Brain Background */
+/* ===================================== */
+
+.brain-overlay{
+
+    position:fixed;
+
+    top:50%;
+
+    left:50%;
+
+    transform:
+    translate(-50%,-50%);
+
+    z-index:-1;
+
+    pointer-events:none;
+}
+
+.brain-image{
+
+    width:900px;
+
+    opacity:0.04;
+
+    filter:blur(1px);
+}
+
+/* ===================================== */
+/* Navbar */
+/* ===================================== */
+
+.navbar{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+    background:white;
+
+    box-shadow:var(--shadow);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:
+
+    18px 60px;
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:var(--primary);
+
+    font-size:24px;
+
+    font-weight:700;
+}
+
+.logo img{
+
+    width:45px;
+}
+
+.navbar-center{
+
+    display:flex;
+
+    gap:30px;
+}
+
+.navbar-center a{
+
+    color:var(--text);
+
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+.navbar-center a:hover{
+
+    color:var(--primary);
+}
+
+.navbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+/* ===================================== */
+/* Login Signup Buttons */
+/* ===================================== */
+
+.nav-btn{
+
+    padding:
+
+    10px 22px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:0.3s;
+
+    border:
+
+    2px solid var(--primary);
+
+    color:var(--primary);
+}
+
+.signup-btn{
+
+    background:var(--primary);
+
+    color:white;
+}
+
+.nav-btn:hover{
+
+    transform:
+    translateY(-2px);
+}
+
+/* ===================================== */
+/* Profile Dropdown */
+/* ===================================== */
+
+.profile-dropdown{
+
+    position:relative;
+}
+
+.profile-trigger{
+
+    border:none;
+
+    background:white;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+}
+
+.profile-trigger img{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    border:
+
+    3px solid var(--primary);
+}
+
+.dropdown-menu{
+
+    position:absolute;
+
+    top:65px;
+
+    right:0;
+
+    width:220px;
+
+    background:white;
+
+    border-radius:16px;
+
+    box-shadow:var(--shadow);
+
+    display:none;
+
+    overflow:hidden;
+}
+
+.profile-dropdown:hover
+.dropdown-menu{
+
+    display:block;
+}
+
+.dropdown-menu a{
+
+    display:block;
+
+    padding:15px;
+
+    color:var(--text);
+
+    transition:0.3s;
+}
+
+.dropdown-menu a:hover{
+
+    background:#f1f5f9;
+}
+
+.logout-link{
+
+    color:var(--danger)!important;
+}
+
+/* ===================================== */
+/* Sidebar */
+/* ===================================== */
+
+.sidebar{
+
+    position:fixed;
+
+    left:0;
+
+    top:90px;
+
+    width:260px;
+
+    height:100vh;
+
+    background:white;
+
+    box-shadow:var(--shadow);
+
+    padding:25px;
+}
+
+.sidebar-logo{
+
+    text-align:center;
+
+    margin-bottom:30px;
+}
+
+.sidebar-logo img{
+
+    width:65px;
+}
+
+.sidebar-logo h2{
+
+    color:var(--primary);
+
+    margin-top:10px;
+}
+
+.sidebar-menu{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+.sidebar-menu a{
+
+    display:block;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    color:var(--text);
+
+    transition:0.3s;
+
+    font-weight:600;
+}
+
+.sidebar-menu a:hover{
+
+    background:#eff6ff;
+
+    color:var(--primary);
+}
+
+/* ===================================== */
+/* Content */
+/* ===================================== */
+
+.main-content{
+
+    min-height:80vh;
+
+    padding:
+
+    50px;
+
+    max-width:1400px;
+
+    margin:auto;
+}
+
+/* ===================================== */
+/* Cards */
+/* ===================================== */
+
+.stat-card,
+.info-card,
+.summary-card,
+.report-card,
+.profile-card,
+.detail-card,
+.settings-card,
+.trend-card{
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:25px;
+
+    box-shadow:var(--shadow);
+}
+
+/* ===================================== */
+/* Buttons */
+/* ===================================== */
+
+.primary-btn,
+.action-btn,
+.download-btn,
+.login-btn,
+.signup-btn,
+.predict-btn,
+.save-btn{
+
+    display:inline-block;
+
+    background:var(--primary);
+
+    color:white;
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:
+
+    14px 24px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.primary-btn:hover,
+.action-btn:hover,
+.download-btn:hover,
+.login-btn:hover,
+.signup-btn:hover,
+.predict-btn:hover,
+.save-btn:hover{
+
+    transform:
+    translateY(-3px);
+
+    box-shadow:
+    0 10px 20px
+    rgba(
+        37,
+        99,
+        235,
+        0.25
+    );
+}
+
+/* ===================================== */
+/* Forms */
+/* ===================================== */
+
+input,
+select{
+
+    width:100%;
+
+    padding:14px;
+
+    border:
+
+    2px solid var(--border);
+
+    border-radius:12px;
+
+    margin-top:8px;
+
+    outline:none;
+
+    transition:0.3s;
+
+    background:white;
+}
+
+input:focus,
+select:focus{
+
+    border-color:
+    var(--primary);
+}
+
+.error-message{
+
+    color:var(--danger);
+
+    font-size:13px;
+
+    margin-top:5px;
+}
+
+/* ===================================== */
+/* Footer */
+/* ===================================== */
+
+.footer{
+
+    background:white;
+
+    margin-top:80px;
+
+    padding:60px 40px 20px;
+
+    box-shadow:var(--shadow);
+}
+
+.footer-container{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(
+            220px,
+            1fr
+        )
+    );
+
+    gap:30px;
+}
+
+.footer-section h3,
+.footer-section h4{
+
+    color:var(--primary);
+
+    margin-bottom:15px;
+}
+
+.footer-section p,
+.footer-section a{
+
+    color:#64748b;
+
+    display:block;
+
+    margin-bottom:10px;
+}
+
+.footer-bottom{
+
+    text-align:center;
+
+    margin-top:30px;
+
+    padding-top:20px;
+
+    border-top:
+    1px solid
+    var(--border);
+}
+
+/* ===================================== */
+/* Responsive */
+/* ===================================== */
+
+@media(
+max-width:992px
+){
+
+    .navbar{
+
+        flex-direction:column;
+
+        gap:15px;
+    }
+
+    .navbar-center{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+    }
+
+    .sidebar{
+
+        display:none;
+    }
+
+    .main-content{
+
+        padding:20px;
+    }
+
+    .brain-image{
+
+        width:500px;
+    }
+}
+
+@media(
+max-width:768px
+){
+
+    .navbar{
+
+        padding:20px;
+    }
+
+    .navbar-center{
+
+        gap:15px;
+    }
+
+    .logo{
+
+        font-size:20px;
+    }
+
+    .brain-image{
+
+        width:350px;
+    }
+}

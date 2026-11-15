@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+
+{% block title %}
+Profile
+{% endblock %}
+
+{% block css %}
+
+<link
+rel="stylesheet"
+href="{{ url_for(
+'static',
+filename='css/profile.css'
+) }}">
+
+{% endblock %}
+
+{% block content %}
+
+<section class="profile-header">
+
+    <h1>
+
+        My Profile
+
+    </h1>
+
+    <p>
+
+        Manage account information,
+        view statistics and track
+        assessment activity.
+
+    </p>
+
+</section>
+
+
+<section class="profile-container">
+
+    <div class="profile-card">
+
+        <div class="profile-avatar">
+
+            <img
+
+            src="{{ url_for(
+            'static',
+            filename='images/profile-avatar.png'
+            ) }}"
+
+            alt="Profile">
+
+        </div>
+
+        <h2>
+
+            {{ user.username }}
+
+        </h2>
+
+        <p>
+
+            {{ user.email }}
+
+        </p>
+
+    </div>
+
+
+    <div class="profile-stats">
+
+        <div class="stat-box">
+
+            <h3>
+
+                Total Assessments
+
+            </h3>
+
+            <h2>
+
+                {{ total_assessments }}
+
+            </h2>
+
+        </div>
+
+        <div class="stat-box">
+
+            <h3>
+
+                Latest Risk
+
+            </h3>
+
+            <h2>
+
+                {{ latest_risk }}
+
+            </h2>
+
+        </div>
+
+        <div class="stat-box">
+
+            <h3>
+
+                Last Assessment
+
+            </h3>
+
+            <h2>
+
+                {{ last_assessment }}
+
+            </h2>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="profile-details">
+
+    <div class="detail-card">
+
+        <h3>
+
+            Account Information
+
+        </h3>
+
+        <p>
+
+            <strong>
+            Username:
+            </strong>
+
+            {{ user.username }}
+
+        </p>
+
+        <p>
+
+            <strong>
+            Email:
+            </strong>
+
+            {{ user.email }}
+
+        </p>
+
+        <p>
+
+            <strong>
+            User ID:
+            </strong>
+
+            {{ user.id }}
+
+        </p>
+
+    </div>
+
+
+    <div class="detail-card">
+
+        <h3>
+
+            Activity Summary
+
+        </h3>
+
+        <p>
+
+            Assessments Completed:
+            {{ total_assessments }}
+
+        </p>
+
+        <p>
+
+            Current Risk Level:
+            {{ latest_risk }}
+
+        </p>
+
+        <p>
+
+            Last Activity:
+            {{ last_assessment }}
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="profile-actions">
+
+    <a
+    href="/history"
+    class="action-btn">
+
+        View History
+
+    </a>
+
+    <a
+    href="/comparison"
+    class="action-btn">
+
+        Compare Results
+
+    </a>
+
+    <a
+    href="/settings"
+    class="action-btn">
+
+        Settings
+
+    </a>
+
+</section>
+
+<script
+src="{{ url_for(
+'static',
+filename='js/profile.js'
+) }}">
+</script>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{
+    "embedding_dim": 2,
+    "num_features": 10,
+    "features": [
+        "adl",
+        "memorycomplaints",
+        "functionalassessment",
+        "sleepquality",
+        "mmse",
+        "bmi",
+        "cardiovasculardisease",
+        "depression",
+        "age",
+        "difficultycompletingtasks"
+    ],
+    "feature_importance": {
+        "adl": 0.17060824957587645,
+        "memorycomplaints": 0.25147380511040246,
+        "functionalassessment": 0.21974634707776228,
+        "sleepquality": 0.054961020296803983,
+        "mmse": 0.06442835752998749,
+        "bmi": 0.018167836063366683,
+        "cardiovasculardisease": 0.05558699294956812,
+        "depression": 0.07657237954023396,
+        "age": 0.07376541642729355,
+        "difficultycompletingtasks": 0.014689595428705004
+    }
+}

@@ -1,0 +1,489 @@
+.comparison-header{
+
+    text-align:center;
+
+    margin-bottom:40px;
+}
+
+.comparison-header h1{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+    margin-bottom:10px;
+}
+
+.comparison-header p{
+
+    color:#64748b;
+
+    font-size:18px;
+
+    max-width:800px;
+
+    margin:auto;
+
+    line-height:1.8;
+}
+
+/* ========================= */
+/* Summary Cards */
+/* ========================= */
+
+.comparison-summary{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(
+            250px,
+            1fr
+        )
+    );
+
+    gap:25px;
+
+    margin-bottom:40px;
+}
+
+.summary-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:24px;
+
+    text-align:center;
+
+    box-shadow:
+    0 10px 25px
+    rgba(
+        0,
+        0,
+        0,
+        0.08
+    );
+
+    transition:0.3s;
+}
+
+.summary-card:hover{
+
+    transform:
+    translateY(-5px);
+}
+
+.summary-card h3{
+
+    color:#64748b;
+
+    margin-bottom:10px;
+}
+
+.summary-card h2{
+
+    color:#2563eb;
+
+    font-size:32px;
+}
+
+/* ========================= */
+/* Charts */
+/* ========================= */
+
+.comparison-charts{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(
+            450px,
+            1fr
+        )
+    );
+
+    gap:25px;
+
+    margin-bottom:40px;
+}
+
+.chart-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:24px;
+
+    box-shadow:
+    0 10px 25px
+    rgba(
+        0,
+        0,
+        0,
+        0.08
+    );
+
+    height:450px;
+}
+
+.chart-card h2{
+
+    color:#2563eb;
+
+    margin-bottom:20px;
+}
+
+.chart-card canvas{
+
+    width:100% !important;
+
+    height:320px !important;
+}
+
+/* ========================= */
+/* Comparison Table */
+/* ========================= */
+
+.comparison-table-section{
+
+    margin-bottom:40px;
+}
+
+.comparison-table-section h2{
+
+    margin-bottom:20px;
+
+    color:#0f172a;
+}
+
+.comparison-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 25px
+    rgba(
+        0,
+        0,
+        0,
+        0.08
+    );
+}
+
+.comparison-table thead{
+
+    background:#2563eb;
+
+    color:white;
+}
+
+.comparison-table th{
+
+    padding:18px;
+
+    text-align:left;
+}
+
+.comparison-table td{
+
+    padding:18px;
+
+    border-bottom:
+    1px solid #e2e8f0;
+}
+
+.comparison-table tbody tr:hover{
+
+    background:#f8fafc;
+}
+
+/* ========================= */
+/* Trend Analysis */
+/* ========================= */
+
+.trend-analysis{
+
+    margin-bottom:40px;
+}
+
+.trend-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:24px;
+
+    box-shadow:
+    0 10px 25px
+    rgba(
+        0,
+        0,
+        0,
+        0.08
+    );
+}
+
+.trend-card h2{
+
+    color:#2563eb;
+
+    margin-bottom:20px;
+}
+
+.trend-card ul{
+
+    padding-left:25px;
+}
+
+.trend-card li{
+
+    margin-bottom:12px;
+
+    color:#475569;
+
+    line-height:1.8;
+}
+
+/* ========================= */
+/* Analytics Cards */
+/* ========================= */
+
+.analytics-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(
+            250px,
+            1fr
+        )
+    );
+
+    gap:25px;
+
+    margin-bottom:40px;
+}
+
+.analytics-card{
+
+    background:white;
+
+    padding:25px;
+
+    text-align:center;
+
+    border-radius:24px;
+
+    box-shadow:
+    0 10px 25px
+    rgba(
+        0,
+        0,
+        0,
+        0.08
+    );
+}
+
+.analytics-card h3{
+
+    color:#64748b;
+
+    margin-bottom:10px;
+}
+
+.analytics-card h2{
+
+    color:#2563eb;
+
+    font-size:30px;
+}
+
+/* ========================= */
+/* Explainable AI */
+/* ========================= */
+
+.explainable-ai{
+
+    margin-bottom:40px;
+}
+
+.ai-card{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:24px;
+
+    box-shadow:
+    0 10px 25px
+    rgba(
+        0,
+        0,
+        0,
+        0.08
+    );
+}
+
+.ai-card h2{
+
+    color:#2563eb;
+
+    margin-bottom:20px;
+}
+
+.ai-card p{
+
+    color:#475569;
+
+    line-height:1.9;
+
+    margin-bottom:15px;
+}
+
+/* ========================= */
+/* Buttons */
+/* ========================= */
+
+.comparison-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:40px;
+}
+
+.action-btn{
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:14px 28px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+.action-btn:hover{
+
+    transform:
+    translateY(-3px);
+
+    box-shadow:
+    0 10px 20px
+    rgba(
+        37,
+        99,
+        235,
+        0.25
+    );
+}
+
+/* ========================= */
+/* Empty State */
+/* ========================= */
+
+.empty-comparison{
+
+    display:flex;
+
+    justify-content:center;
+}
+
+.empty-card{
+
+    background:white;
+
+    max-width:600px;
+
+    width:100%;
+
+    padding:50px;
+
+    text-align:center;
+
+    border-radius:24px;
+
+    box-shadow:
+    0 10px 25px
+    rgba(
+        0,
+        0,
+        0,
+        0.08
+    );
+}
+
+.empty-card h2{
+
+    color:#0f172a;
+
+    margin-bottom:15px;
+}
+
+.empty-card p{
+
+    color:#64748b;
+
+    line-height:1.8;
+
+    margin-bottom:20px;
+}
+
+/* ========================= */
+/* Responsive */
+/* ========================= */
+
+@media(max-width:768px){
+
+    .comparison-header h1{
+
+        font-size:32px;
+    }
+
+    .comparison-charts{
+
+        grid-template-columns:1fr;
+    }
+
+    .comparison-table{
+
+        display:block;
+
+        overflow-x:auto;
+    }
+
+    .comparison-actions{
+
+        flex-direction:column;
+    }
+}

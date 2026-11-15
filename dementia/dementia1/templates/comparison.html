@@ -1,0 +1,431 @@
+{% extends "base.html" %}
+
+{% block title %}
+Comparison Dashboard
+{% endblock %}
+
+{% block css %}
+
+<link
+rel="stylesheet"
+href="{{ url_for(
+'static',
+filename='css/comparison.css'
+) }}">
+
+{% endblock %}
+
+{% block content %}
+
+<section class="comparison-header">
+
+    <h1>
+
+        Cognitive Progress Dashboard
+
+    </h1>
+
+    <p>
+
+        Monitor dementia progression,
+        compare assessments and
+        understand AI-driven trends.
+
+    </p>
+
+</section>
+
+{% if comparison.success %}
+
+<section class="comparison-summary">
+
+    <div class="summary-card">
+
+        <h3>
+
+            Previous Risk
+
+        </h3>
+
+        <h2>
+
+            {{ comparison.previous.risk_score }}
+
+        </h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>
+
+            Current Risk
+
+        </h3>
+
+        <h2>
+
+            {{ comparison.current.risk_score }}
+
+        </h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>
+
+            Confidence
+
+        </h3>
+
+        <h2>
+
+            {{ comparison.current.confidence }}%
+
+        </h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>
+
+            Total Assessments
+
+        </h3>
+
+        <h2>
+
+            {{ summary.total_assessments }}
+
+        </h2>
+
+    </div>
+
+</section>
+
+<section class="comparison-charts">
+
+    <div class="chart-card">
+
+        <h2>
+
+            Risk Progression
+
+        </h2>
+
+        <canvas
+        id="riskChart">
+        </canvas>
+
+    </div>
+
+    <div class="chart-card">
+
+        <h2>
+
+            Confidence Analysis
+
+        </h2>
+
+        <canvas
+        id="confidenceChart">
+        </canvas>
+
+    </div>
+
+</section>
+
+<section class="comparison-table-section">
+
+    <h2>
+
+        Assessment Comparison
+
+    </h2>
+
+    <table class="comparison-table">
+
+        <thead>
+
+            <tr>
+
+                <th>
+
+                    Metric
+
+                </th>
+
+                <th>
+
+                    Previous
+
+                </th>
+
+                <th>
+
+                    Current
+
+                </th>
+
+                <th>
+
+                    Difference
+
+                </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for feature,data in comparison.comparison.items() %}
+
+            <tr>
+
+                <td>
+
+                    {{ feature }}
+
+                </td>
+
+                <td>
+
+                    {{ data.previous }}
+
+                </td>
+
+                <td>
+
+                    {{ data.current }}
+
+                </td>
+
+                <td>
+
+                    {{ data.change }}
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</section>
+
+<section class="trend-analysis">
+
+    <div class="trend-card">
+
+        <h2>
+
+            Clinical Trend Analysis
+
+        </h2>
+
+        <ul>
+
+            {% for item in comparison.trend %}
+
+            <li>
+
+                {{ item }}
+
+            </li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+</section>
+
+<section class="analytics-grid">
+
+    <div class="analytics-card">
+
+        <h3>
+
+            Average Risk
+
+        </h3>
+
+        <h2>
+
+            {{ summary.average_risk }}
+
+        </h2>
+
+    </div>
+
+    <div class="analytics-card">
+
+        <h3>
+
+            Highest Risk
+
+        </h3>
+
+        <h2>
+
+            {{ summary.highest_risk }}
+
+        </h2>
+
+    </div>
+
+    <div class="analytics-card">
+
+        <h3>
+
+            Lowest Risk
+
+        </h3>
+
+        <h2>
+
+            {{ summary.lowest_risk }}
+
+        </h2>
+
+    </div>
+
+</section>
+
+<section class="explainable-ai">
+
+    <div class="ai-card">
+
+        <h2>
+
+            Explainable AI Insights
+
+        </h2>
+
+        <p>
+
+            The model compares current
+            cognitive performance with
+            previous assessments.
+
+        </p>
+
+        <p>
+
+            MMSE, ADL, Functional
+            Assessment, Memory
+            Complaints and Sleep
+            Quality contribute to
+            dementia risk estimation.
+
+        </p>
+
+        <p>
+
+            Continuous monitoring
+            helps identify early
+            cognitive decline and
+            evaluate patient progress.
+
+        </p>
+
+    </div>
+
+</section>
+
+<div
+
+id="chartData"
+
+data-previous-risk="{{ comparison.previous.risk_score }}"
+
+data-current-risk="{{ comparison.current.risk_score }}"
+
+data-previous-confidence="{{ comparison.previous.confidence }}"
+
+data-current-confidence="{{ comparison.current.confidence }}">
+
+</div>
+
+<section class="comparison-actions">
+
+    <a
+    href="/assessment"
+    class="action-btn">
+
+        New Assessment
+
+    </a>
+
+    <a
+    href="/history"
+    class="action-btn">
+
+        View History
+
+    </a>
+
+    <a
+    href="/download/comparison"
+    class="action-btn">
+
+        Download PDF
+
+    </a>
+
+</section>
+
+{% else %}
+
+<section class="empty-comparison">
+
+    <div class="empty-card">
+
+        <h2>
+
+            Not Enough Data
+
+        </h2>
+
+        <p>
+
+            At least two assessments
+            are required before
+            comparison can be
+            generated.
+
+        </p>
+
+        <a
+        href="/assessment"
+        class="action-btn">
+
+            Create Assessment
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+<script
+src="https://cdn.jsdelivr.net/npm/chart.js">
+</script>
+
+<script
+src="{{ url_for(
+'static',
+filename='js/comparison.js'
+) }}">
+</script>
+
+{% endblock %}

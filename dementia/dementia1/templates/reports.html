@@ -1,0 +1,296 @@
+{% extends "base.html" %}
+
+{% block title %}
+Reports
+{% endblock %}
+
+{% block css %}
+
+<link
+rel="stylesheet"
+href="{{ url_for(
+'static',
+filename='css/reports.css'
+) }}">
+
+{% endblock %}
+
+{% block content %}
+
+<section class="reports-header">
+
+    <h1>
+
+        Reports Center
+
+    </h1>
+
+    <p>
+
+        Generate and download
+        professional dementia
+        assessment reports.
+
+    </p>
+
+</section>
+
+<section class="reports-grid">
+
+    <div class="report-card">
+
+        <div class="report-icon">
+
+            📄
+
+        </div>
+
+        <h2>
+
+            Latest Assessment
+
+        </h2>
+
+        <p>
+
+            Download the most
+            recent assessment
+            report including
+            prediction,
+            confidence,
+            risk score and
+            explanation.
+
+        </p>
+
+        <a
+        href="/download/latest"
+        class="download-btn">
+
+            Download PDF
+
+        </a>
+
+    </div>
+
+    <div class="report-card">
+
+        <div class="report-icon">
+
+            📚
+
+        </div>
+
+        <h2>
+
+            Assessment History
+
+        </h2>
+
+        <p>
+
+            Download a complete
+            history of all
+            assessments and
+            risk evaluations.
+
+        </p>
+
+        <a
+        href="/download/history"
+        class="download-btn">
+
+            Download PDF
+
+        </a>
+
+    </div>
+
+    <div class="report-card">
+
+        <div class="report-icon">
+
+            📊
+
+        </div>
+
+        <h2>
+
+            Comparison Report
+
+        </h2>
+
+        <p>
+
+            Download trend
+            analysis and
+            progression report
+            between assessments.
+
+        </p>
+
+        <a
+        href="/download/comparison"
+        class="download-btn">
+
+            Download PDF
+
+        </a>
+
+    </div>
+
+</section>
+
+<section class="report-preview">
+
+    <div class="preview-card">
+
+        <h2>
+
+            Included In Reports
+
+        </h2>
+
+        <ul>
+
+            <li>
+
+                Patient Information
+
+            </li>
+
+            <li>
+
+                Assessment Date
+
+            </li>
+
+            <li>
+
+                Prediction Result
+
+            </li>
+
+            <li>
+
+                Risk Level
+
+            </li>
+
+            <li>
+
+                Confidence Score
+
+            </li>
+
+            <li>
+
+                Explainable AI Analysis
+
+            </li>
+
+            <li>
+
+                Feature Importance
+
+            </li>
+
+            <li>
+
+                Assessment History
+
+            </li>
+
+            <li>
+
+                Trend Analysis
+
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+<section class="reports-summary">
+
+    <div class="summary-card">
+
+        <h3>
+
+            Total Reports
+
+        </h3>
+
+        <h2>
+
+            {{ reports_count }}
+
+        </h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>
+
+            Latest Download
+
+        </h3>
+
+        <h2>
+
+            {{ latest_download }}
+
+        </h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>
+
+            Report Format
+
+        </h3>
+
+        <h2>
+
+            PDF
+
+        </h2>
+
+    </div>
+
+</section>
+
+<section class="reports-actions">
+
+    <a
+    href="/dashboard"
+    class="action-btn">
+
+        Dashboard
+
+    </a>
+
+    <a
+    href="/history"
+    class="action-btn">
+
+        History
+
+    </a>
+
+    <a
+    href="/comparison"
+    class="action-btn">
+
+        Comparison
+
+    </a>
+
+</section>
+
+{% endblock %}

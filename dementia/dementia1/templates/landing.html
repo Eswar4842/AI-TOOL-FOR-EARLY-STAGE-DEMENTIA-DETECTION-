@@ -1,0 +1,317 @@
+{% extends "base.html" %}
+
+{% block title %}
+DementiaAI | Home
+{% endblock %}
+
+{% block css %}
+
+<link
+rel="stylesheet"
+href="{{ url_for(
+'static',
+filename='css/landing.css'
+) }}">
+
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-left">
+
+        <span class="hero-badge">
+
+            AI Powered Healthcare
+
+        </span>
+
+        <h1>
+
+            Early Dementia Detection
+            Using Artificial Intelligence
+
+        </h1>
+
+        <p>
+
+            Monitor cognitive health,
+            assess dementia risk,
+            track progression over time,
+            and generate intelligent
+            healthcare reports.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+            href="/signup"
+            class="primary-btn">
+
+                Get Started
+
+            </a>
+
+            <a
+            href="/login"
+            class="secondary-btn">
+
+                Login
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-right">
+
+        <img
+        src="{{ url_for(
+        'static',
+        filename='images/hero-banner.png'
+        ) }}"
+        alt="Healthcare AI">
+
+    </div>
+
+</section>
+
+<section class="stats-section">
+
+    <div class="stat-card">
+
+        <h2>
+
+            10+
+
+        </h2>
+
+        <p>
+
+            Clinical Features
+
+        </p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>
+
+            AI
+
+        </h2>
+
+        <p>
+
+            Powered Prediction
+
+        </p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>
+
+            24/7
+
+        </h2>
+
+        <p>
+
+            Monitoring
+
+        </p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>
+
+            PDF
+
+        </h2>
+
+        <p>
+
+            Smart Reports
+
+        </p>
+
+    </div>
+
+</section>
+
+<section class="about-section">
+
+    <h2>
+
+        About DementiaAI
+
+    </h2>
+
+    <p>
+
+        DementiaAI combines
+        Machine Learning,
+        TabNet Explainability,
+        Neural Networks,
+        and Clinical Analysis
+        to assist healthcare
+        professionals and
+        patients in identifying
+        dementia risk factors.
+
+    </p>
+
+</section>
+
+<section class="features-section">
+
+    <h2>
+
+        Platform Features
+
+    </h2>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+
+            <h3>
+
+                AI Assessment
+
+            </h3>
+
+            <p>
+
+                Predict dementia risk
+                using TabNet + ANN.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <h3>
+
+                Explainable AI
+
+            </h3>
+
+            <p>
+
+                Understand why a
+                prediction was made.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <h3>
+
+                Assessment History
+
+            </h3>
+
+            <p>
+
+                View all previous
+                assessments.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <h3>
+
+                Trend Analysis
+
+            </h3>
+
+            <p>
+
+                Compare results
+                over time.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <h3>
+
+                PDF Reports
+
+            </h3>
+
+            <p>
+
+                Download complete
+                assessment reports.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <h3>
+
+                Secure Accounts
+
+            </h3>
+
+            <p>
+
+                User authentication
+                and private records.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="cta-section">
+
+    <h2>
+
+        Start Monitoring
+        Cognitive Health Today
+
+    </h2>
+
+    <p>
+
+        Create an account and
+        access powerful dementia
+        assessment tools.
+
+    </p>
+
+    <a
+    href="/signup"
+    class="primary-btn">
+
+        Create Free Account
+
+    </a>
+
+</section>
+
+{% endblock %}

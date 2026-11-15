@@ -1,0 +1,55 @@
+<div class="profile-dropdown">
+
+    <button
+    class="profile-trigger">
+
+        <img
+        src="{{ url_for(
+        'static',
+        filename='images/profile-avatar.png'
+        ) }}"
+        alt="Profile">
+
+        <span>
+
+            {{ session.get("username") }}
+
+        </span>
+
+        ▼
+
+    </button>
+
+    <div class="dropdown-menu">
+
+        <a href="/profile">
+
+            👤 Profile
+
+        </a>
+
+        <a href="/settings">
+
+            ⚙ Settings
+
+        </a>
+
+        <a href="/reports">
+
+            📄 Reports
+
+        </a>
+
+        <hr>
+
+        <a
+        href="/logout"
+        class="logout-link">
+
+            🚪 Logout
+
+        </a>
+
+    </div>
+
+</div>

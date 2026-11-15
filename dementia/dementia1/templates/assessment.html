@@ -1,0 +1,528 @@
+{% extends "base.html" %}
+
+{% block title %}
+New Assessment
+{% endblock %}
+
+{% block css %}
+
+<link
+rel="stylesheet"
+href="{{ url_for(
+'static',
+filename='css/assessment.css'
+) }}">
+
+{% endblock %}
+
+{% block content %}
+
+<section class="assessment-header">
+
+    <h1>
+
+        Dementia Risk Assessment
+
+    </h1>
+
+    <p>
+
+        Enter patient clinical information
+        to generate AI-powered dementia
+        risk prediction.
+
+    </p>
+
+</section>
+
+
+<form
+
+id="assessmentForm"
+
+method="POST"
+
+class="assessment-form">
+
+    <div class="input-grid">
+
+        <div class="input-group">
+
+            <label>
+
+                Age
+
+            </label>
+
+            <input
+
+            type="number"
+
+            name="age"
+
+            min="40"
+
+            max="100"
+
+            required>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+
+                MMSE Score
+
+            </label>
+
+            <input
+
+            type="number"
+
+            name="mmse"
+
+            min="0"
+
+            max="30"
+
+            required>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+
+                BMI
+
+            </label>
+
+            <input
+
+            type="number"
+
+            name="bmi"
+
+            min="10"
+
+            max="60"
+
+            step="0.1"
+
+            required>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+
+                ADL Score
+
+            </label>
+
+            <input
+
+            type="number"
+
+            name="adl"
+
+            min="0"
+
+            max="10"
+
+            step="0.1"
+
+            required>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+
+                Sleep Quality
+
+            </label>
+
+            <input
+
+            type="number"
+
+            name="sleepquality"
+
+            min="0"
+
+            max="10"
+
+            step="0.1"
+
+            required>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+
+                Functional Assessment
+
+            </label>
+
+            <input
+
+            type="number"
+
+            name="functionalassessment"
+
+            min="0"
+
+            max="10"
+
+            step="0.1"
+
+            required>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+
+                Memory Complaints
+
+            </label>
+
+            <select
+
+            name="memorycomplaints"
+
+            required>
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="0">
+                    No
+                </option>
+
+                <option value="1">
+                    Yes
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+
+                Depression
+
+            </label>
+
+            <select
+
+            name="depression"
+
+            required>
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="0">
+                    No
+                </option>
+
+                <option value="1">
+                    Yes
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+
+                Cardiovascular Disease
+
+            </label>
+
+            <select
+
+            name="cardiovasculardisease"
+
+            required>
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="0">
+                    No
+                </option>
+
+                <option value="1">
+                    Yes
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+
+                Difficulty Completing Tasks
+
+            </label>
+
+            <select
+
+            name="difficultycompletingtasks"
+
+            required>
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="0">
+                    No
+                </option>
+
+                <option value="1">
+                    Yes
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+    <button
+
+    type="submit"
+
+    class="predict-btn">
+
+        Generate Prediction
+
+    </button>
+
+</form>
+
+
+{% if result %}
+
+<section class="result-section">
+
+    <h2>
+
+        Prediction Result
+
+    </h2>
+
+    <div class="result-grid">
+
+        <div class="result-card">
+
+            <h3>
+
+                Prediction
+
+            </h3>
+
+            <h2>
+
+                {{ result.prediction }}
+
+            </h2>
+
+        </div>
+
+        <div class="result-card">
+
+            <h3>
+
+                Risk Level
+
+            </h3>
+
+            <h2>
+
+                {{ result.risk_level }}
+
+            </h2>
+
+        </div>
+
+        <div class="result-card">
+
+            <h3>
+
+                Confidence
+
+            </h3>
+
+            <h2>
+
+                {{ result.confidence }}%
+
+            </h2>
+
+        </div>
+
+        <div class="result-card">
+
+            <h3>
+
+                Risk Score
+
+            </h3>
+
+            <h2>
+
+                {{ result.risk_score }}
+
+            </h2>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="explanation-section">
+
+    <div class="explanation-card">
+
+        <h2>
+
+            Explainable AI Analysis
+
+        </h2>
+
+        <p>
+
+            {{ result.explanation }}
+
+        </p>
+
+    </div>
+
+</section>
+
+
+{% if result.important_features %}
+
+<section class="feature-section">
+
+    <h2>
+
+        Most Important Features
+
+    </h2>
+
+    <table class="feature-table">
+
+        <thead>
+
+            <tr>
+
+                <th>
+
+                    Feature
+
+                </th>
+
+                <th>
+
+                    Importance
+
+                </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for feature,score in result.important_features %}
+
+            <tr>
+
+                <td>
+
+                    {{ feature }}
+
+                </td>
+
+                <td>
+
+                    {{ "%.4f"|format(score) }}
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</section>
+
+{% endif %}
+
+
+<section class="download-section">
+
+    <a
+
+    href="/download/latest"
+
+    class="download-btn">
+
+        Download PDF Report
+
+    </a>
+
+</section>
+
+{% endif %}
+
+<script
+src="{{ url_for(
+'static',
+filename='js/validation.js'
+) }}">
+</script>
+
+<script
+src="{{ url_for(
+'static',
+filename='js/assessment.js'
+) }}">
+</script>
+
+{% endblock %}
